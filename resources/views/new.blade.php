@@ -15,32 +15,32 @@
 <body>
 <div class="wrapper">
     <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">Laravel</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Главная</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">О нас</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/news">Новости</a>
-                        </li>
-                    </ul>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">Laravel</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="/">Главная</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/about">О нас</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/news">Новости</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
 
     <main class="main">
-        <h1>Добро пожаловать!</h1>
+        <h1>Новость</h1>
         <p class="content">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam asperiores aspernatur beatae
             consequuntur

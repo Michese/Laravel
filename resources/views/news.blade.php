@@ -25,13 +25,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Главная</a>
+                            <a class="nav-link" aria-current="page" href="/">Главная</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/about">О нас</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/news">Новости</a>
+                            <a class="nav-link active" href="/news">Новости</a>
                         </li>
                     </ul>
                 </div>
@@ -40,14 +40,27 @@
     </header>
 
     <main class="main">
-        <h1>Добро пожаловать!</h1>
-        <p class="content">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam asperiores aspernatur beatae
-            consequuntur
-            corporis delectus expedita explicabo inventore iure laborum laudantium magnam maxime molestias nesciunt
-            nulla odio,
-            officia officiis perferendis quisquam repudiandae similique velit!
-        </p>
+        <h1>Новости</h1>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="/new" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="/new" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        </div>
     </main>
 
     <footer class="footer">
