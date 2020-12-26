@@ -16,35 +16,35 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/', function () {
-    return view('index')
-        ->with('isHome', true);
-});
+    return view('index');
+})
+    ->name('index');
 
 Route::get('/about', function () {
-    return view('about')
-        ->with('isAbout', true);
-});
+    return view('about');
+})
+    ->name('about');
 
 Route::group([
-    'prefix' => '/news'
-], function() {
+    'prefix' => '/news',
+    'as' => 'news::'
+], function () {
 
-    Route::get('/', [NewsController::class, 'index']);
+    Route::get('/', [NewsController::class, 'index'])
+        ->name('index');
 
     Route::get('/item/{id}', [NewsController::class, 'item'])
+        ->name('item')
         ->where('id', '\d+');
-
 
     Route::group([
         'prefix' => '/add'
-    ], function() {
+    ], function () {
 
-        Route::get('/', function() {
-            return view('addNews')
-                ->with('isAddNews', true);
-        });
+        Route::get('/', [NewsController::class, 'add'])
+            ->name('add');
 
-        Route::post('/', [NewsController::class, 'addNews']);
+        Route::post('/', [NewsController::class, 'add']);
 
     });
 
@@ -52,13 +52,14 @@ Route::group([
 });
 
 Route::group([
-    'prefix' => '/auth'
-], function() {
+    'prefix' => '/auth',
+    'as' => 'auth::'
+], function () {
 
-    Route::get('/', function() {
-        return view('auth')
-            ->with('isAuth', true);
-    });
+    Route::get('/', function () {
+        return view('auth');
+    })
+        ->name('index');
 
     Route::post('/', [AuthController::class, 'auth']);
 });

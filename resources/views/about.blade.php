@@ -1,21 +1,11 @@
-<!doctype html>
-<html lang="en">
-@include('layouts/head')
-<body>
-<div class="wrapper">
-    @include('layouts/header')
+@extends('layouts.main')
 
-    <main class="main">
-        <h1>О нас</h1>
-        <p class="content">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus accusantium
-            asperiores, deleniti fugiat inventore ipsum iusto laborum maiores modi mollitia nihil nobis quis repellat
-            sapiente sed soluta. At, cupiditate dolores eaque incidunt minus reiciendis ullam? Dicta, fuga iusto
-            laudantium nostrum odit quaerat veniam! Cum maxime molestiae quisquam repudiandae sapiente!
-        </p>
-    </main>
-
-    @include('layouts/footer')
-</div>
-</body>
-</html>
+@section('content')
+    <h1>О нас</h1>
+    <p class="content">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus accusantium
+        asperiores, deleniti fugiat inventore ipsum iusto laborum maiores modi mollitia nihil nobis quis repellat
+        sapiente sed soluta. At, cupiditate dolores eaque incidunt minus reiciendis ullam? Dicta, fuga iusto
+        laudantium nostrum odit quaerat veniam! Cum maxime molestiae quisquam repudiandae sapiente!
+    </p>
+@endsection

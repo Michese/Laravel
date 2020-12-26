@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.wrapper {
+  margin-right: auto;
+  /* 1 */
+  margin-left: auto;
+  /* 1 */
+  max-width: 1200px;
+  /* 2 */
+  padding-right: 10px;
+  /* 3 */
+  padding-left: 10px;
+  /* 3 */
+}
+
+.marginTop {
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=app.css.map */
