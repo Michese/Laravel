@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminNewsController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\NewsController;
 use App\Http\Controllers\AuthController;
@@ -36,19 +37,18 @@ Route::group([
     Route::get('/item/{id}', [NewsController::class, 'item'])
         ->name('item')
         ->where('id', '\d+');
+});
 
-    Route::group([
-        'prefix' => '/add'
-    ], function () {
+Route::group([
+    'prefix' => 'admin/news/create',
+    'as' => 'admin::news::'
+], function () {
 
-        Route::get('/', [NewsController::class, 'add'])
-            ->name('add');
+    Route::get('/', [AdminNewsController::class, 'createView'])
+        ->name('createView');
 
-        Route::post('/', [NewsController::class, 'add']);
-
-    });
-
-
+    Route::post('/', [AdminNewsController::class, 'create'])
+        ->name('create');
 });
 
 Route::group([
@@ -56,11 +56,10 @@ Route::group([
     'as' => 'auth::'
 ], function () {
 
-    Route::get('/', function () {
-        return view('auth');
-    })
+    Route::get('/', [AuthController::class, 'index'])
         ->name('index');
 
-    Route::post('/', [AuthController::class, 'auth']);
+    Route::post('/signIn', [AuthController::class, 'signIn'])
+        ->name('signIn');
 });
 

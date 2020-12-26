@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    // artisan
+    public function index() {
+        return view('auth.index');
+    }
 
-    public function auth() {
-        //
+    public function signIn(Request $request): \Illuminate\Http\RedirectResponse
+    {
+        return redirect()->route('auth::index');
     }
 }

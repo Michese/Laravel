@@ -27,7 +27,7 @@ class HeaderModel extends Model
         ],
         'Добавить новость' =>[
             'title' => 'Добавить новость',
-            'alias' => 'news::add',
+            'alias' => 'admin::news::createView',
             'isActive' => false
         ],
         'Войти' =>[
