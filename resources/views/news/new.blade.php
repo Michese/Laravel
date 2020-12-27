@@ -3,6 +3,6 @@
 @section('content')
     <h1>{{ $new['title'] }}</h1>
     <p class="content">
-        {{ $new['content_long'] }}
+        {{ $new['content'] }}
     </p>
 @endsection

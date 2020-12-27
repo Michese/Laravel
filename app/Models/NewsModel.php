@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class NewsModel extends Model
 {
@@ -27,10 +28,27 @@ class NewsModel extends Model
     ];
 
     public function getNewById(int $id) {
-        return $this->news[$id];
+        $result = DB::table('news')
+            ->where('news_id', '=', $id)
+            ->get();
+
+        $result = json_decode(json_encode($result), true);
+        return $result[0];
     }
 
-    public function getAllNews() {
-        return $this->news;
+    public function getNewsByCategoryId(int $id) {
+        $result = DB::table('news')
+            ->where('category_id', '=', $id)
+            ->get();
+
+        $result = json_decode(json_encode($result), true);
+        return $result;
+    }
+
+    public function getAllNewsCategory() {
+        $result = DB::table('news')
+            ->get();
+        $result = json_decode(json_encode($result), true);
+        return $result;
     }
 }

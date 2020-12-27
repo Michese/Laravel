@@ -22,7 +22,7 @@ class HeaderModel extends Model
         ],
         'Новости' => [
             'title' => 'Новости',
-            'alias' => 'news::index',
+            'alias' => 'news::category',
             'isActive' => false
         ],
         'Добавить новость' =>[

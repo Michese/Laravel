@@ -31,8 +31,12 @@ Route::group([
     'as' => 'news::'
 ], function () {
 
-    Route::get('/', [NewsController::class, 'index'])
-        ->name('index');
+    Route::get('/category', [NewsController::class, 'category'])
+        ->name('category');
+
+    Route::get('/category/{category_id}', [NewsController::class, 'newsByCategory'])
+        ->name('index')
+        ->where('category_id', '\d+');
 
     Route::get('/item/{id}', [NewsController::class, 'item'])
         ->name('item')
@@ -62,4 +66,7 @@ Route::group([
     Route::post('/signIn', [AuthController::class, 'signIn'])
         ->name('signIn');
 });
+
+Route::get('/db', [\App\Http\Controllers\DBController::class, 'index'])
+    ->name('db::index');
 

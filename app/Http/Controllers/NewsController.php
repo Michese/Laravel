@@ -6,10 +6,10 @@ use App\Models\NewsModel;
 
 class NewsController extends Controller
 {
-    public function index()
+    public function category()
     {
-        $news = (new NewsModel())->getAllNews();
-        return view('news.news', ['news' => $news]);
+        $newsCategory = (new NewsModel())->getAllNewsCategory();
+        return view('news.category', ['newsCategory' => $newsCategory]);
     }
 
     public function item($id)
@@ -18,8 +18,8 @@ class NewsController extends Controller
         return view('news.new', ['new' => $new]);
     }
 
-    public function add()
-    {
-        return view('news.add');
+    public function newsByCategory($id) {
+        $news = (new NewsModel())->getNewsByCategoryId($id);
+        return view('news.news', ['news' => $news]);
     }
 }
