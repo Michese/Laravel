@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminNewsController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,56 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+})
+    ->name('index');
+
+Route::get('/about', function () {
+    return view('about');
+})
+    ->name('about');
+
+Route::group([
+    'prefix' => '/news',
+    'as' => 'news::'
+], function () {
+
+    Route::get('/category', [NewsController::class, 'category'])
+        ->name('category');
+
+    Route::get('/category/{category_id}', [NewsController::class, 'newsByCategory'])
+        ->name('index')
+        ->where('category_id', '\d+');
+
+    Route::get('/item/{id}', [NewsController::class, 'item'])
+        ->name('item')
+        ->where('id', '\d+');
 });
+
+Route::group([
+    'prefix' => 'admin/news/create',
+    'as' => 'admin::news::'
+], function () {
+
+    Route::get('/', [AdminNewsController::class, 'createView'])
+        ->name('createView');
+
+    Route::post('/', [AdminNewsController::class, 'create'])
+        ->name('create');
+});
+
+Route::group([
+    'prefix' => '/auth',
+    'as' => 'auth::'
+], function () {
+
+    Route::get('/', [AuthController::class, 'index'])
+        ->name('index');
+
+    Route::post('/signIn', [AuthController::class, 'signIn'])
+        ->name('signIn');
+});
+
+Route::get('/db', [\App\Http\Controllers\DBController::class, 'index'])
+    ->name('db::index');
+
