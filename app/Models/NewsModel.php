@@ -6,10 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * App\Models\NewsModel
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|NewsModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|NewsModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|NewsModel query()
+ * @mixin \Eloquent
+ */
 class NewsModel extends Model
 {
     use HasFactory;
-
 
     public function getNewById(int $id) {
         $result = DB::table('news')

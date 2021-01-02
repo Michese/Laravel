@@ -44,15 +44,19 @@ Route::group([
 });
 
 Route::group([
-    'prefix' => 'admin/news/create',
+    'prefix' => 'admin/news',
     'as' => 'admin::news::'
 ], function () {
 
-    Route::get('/', [AdminNewsController::class, 'createView'])
+    Route::get('/create/', [AdminNewsController::class, 'createView'])
         ->name('createView');
 
-    Route::post('/', [AdminNewsController::class, 'create'])
+    Route::post('/create/', [AdminNewsController::class, 'create'])
         ->name('create');
+
+    Route::post('/delete/{category_id}', [AdminNewsController::class, 'delete'])
+        ->where('category_id', '\d+')
+        ->name('delete');
 });
 
 Route::group([

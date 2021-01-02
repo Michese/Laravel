@@ -5,6 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\HeaderModel
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|HeaderModel newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HeaderModel newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HeaderModel query()
+ * @mixin \Eloquent
+ */
 class HeaderModel extends Model
 {
     use HasFactory;

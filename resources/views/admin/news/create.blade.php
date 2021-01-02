@@ -4,6 +4,14 @@
     <h1>Добавить новость</h1>
     <form action="{{ route('admin::news::create') }}" method="post">
         @csrf
+
+        <select name="category" class="form-select" aria-label="Default select example" required>
+            <option selected>Выберите категорию новости</option>
+            @foreach($categories as $category)
+                <option value="{{ $category->category_id }}">{{ $category->title }}</option>
+            @endforeach
+        </select>
+
         <div class="mb-3">
             <label for="exampleInputTitle" class="form-label">Название</label>
             <input name="title" type="text" class="form-control" id="exampleInputTitle" aria-describedby="titleHelp">
@@ -12,7 +20,8 @@
 
         <div class="mb-3">
             <label for="inputDescription" class="form-label">Описание новости</label>
-            <textarea name="description" class="form-control" aria-label="With textarea" id="inputDescription"></textarea>
+            <textarea name="description" class="form-control" aria-label="With textarea"
+                      id="inputDescription"></textarea>
         </div>
 
         <div class="mb-3">
