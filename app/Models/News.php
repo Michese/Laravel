@@ -30,6 +30,10 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|News whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|News whereUpdatedAt($value)
  * @mixin \Eloquent\
+ * @property-read \App\Models\NewsCategory $newsCategory
+ * @method static \Illuminate\Database\Query\Builder|News onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|News withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|News withoutTrashed()
  */
 class News extends Model
 {

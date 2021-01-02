@@ -17,6 +17,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @method static \Illuminate\Database\Eloquent\Builder|NewsCategory whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|NewsCategory whereTitle($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\News[] $news
+ * @property-read int|null $news_count
  */
 class NewsCategory extends Model
 {

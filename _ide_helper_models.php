@@ -45,6 +45,11 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|News whereNewsId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|News whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|News whereUpdatedAt($value)
+ * @mixin \Eloquent\
+ * @property-read \App\Models\NewsCategory $newsCategory
+ * @method static \Illuminate\Database\Query\Builder|News onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|News withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|News withoutTrashed()
  */
 	class News extends \Eloquent {}
 }
@@ -61,6 +66,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|NewsCategory whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|NewsCategory whereTitle($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\News[] $news
+ * @property-read int|null $news_count
  */
 	class NewsCategory extends \Eloquent {}
 }
