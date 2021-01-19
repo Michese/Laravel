@@ -28,7 +28,8 @@ Route::get('/about', function () {
 
 Route::group([
     'prefix' => '/news',
-    'as' => 'news::'
+    'as' => 'news::',
+    'middleware' => ['checkIsAuth']
 ], function () {
 
     Route::get('/category', [NewsController::class, 'category'])
@@ -45,7 +46,8 @@ Route::group([
 
 Route::group([
     'prefix' => 'admin/news',
-    'as' => 'admin::news::'
+    'as' => 'admin::news::',
+    'middleware' => ['checkIsAuth','checkIsAdmin']
 ], function () {
 
     Route::get('/create/', [AdminNewsController::class, 'createView'])
@@ -59,17 +61,18 @@ Route::group([
         ->name('delete');
 });
 
-//Route::group([
-//    'prefix' => '/auth',
-//    'as' => 'auth::'
-//], function () {
-//
-//    Route::get('/', [AuthController::class, 'index'])
-//        ->name('index');
-//
-//    Route::post('/signIn', [AuthController::class, 'signIn'])
-//        ->name('signIn');
-//});
+Route::group([
+    'prefix' => 'admin/users',
+    'as' => 'admin::users::',
+    'middleware' => ['checkIsAuth','checkIsAdmin']
+], function () {
+
+    Route::get('/', [\App\Http\Controllers\Admin\AdminUsersController::class, 'index'])
+        ->name('index');
+
+    Route::post('/update', [\App\Http\Controllers\Admin\AdminUsersController::class, 'update'])
+        ->name('update');
+});
 
 Route::get('/db', [\App\Http\Controllers\DBController::class, 'index'])
     ->name('db::index');
@@ -77,7 +80,8 @@ Route::get('/db', [\App\Http\Controllers\DBController::class, 'index'])
 Auth::routes();
 Route::group([
     'prefix' => '/auth',
-    'as' => 'auth::'
+    'as' => 'auth::',
+    'middleware' => ['checkIsAuth']
 ], function () {
     Route::get('/profile', [\App\Http\Controllers\Auth\ProfileController::class, 'profile'])
         ->name('profile');

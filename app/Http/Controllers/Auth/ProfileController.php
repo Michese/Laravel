@@ -19,6 +19,7 @@ class ProfileController extends Controller
     {
         $redirect = redirect()->route('auth::profile');
         $currentPassword = $request->post('current_password');
+        $errors = [];
 
         if(\Hash::check($currentPassword, Auth::user()->password)) {
             $name = $request->post('name');
@@ -33,8 +34,9 @@ class ProfileController extends Controller
             Auth::user()->save();
 
         } else {
-            $errorMessage = 'Неверный пароль!';
-            $redirect = $redirect->with(['errorMessage' => $errorMessage]);
+            $errors['current_password'][] = 'Неверный пароль!';
+            $redirect = $redirect
+                ->withErrors($errors);
         }
 
         return $redirect;

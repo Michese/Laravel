@@ -53,12 +53,6 @@
                 @endforeach
             </div>
         @endif
-        @if(request()->session()->has('errorMessage'))
-            <div class="alert alert-danger">
-                    <p style="margin-bottom: 0;">{{ request()->session()->get('errorMessage') }}</p>
-            </div>
-            @endif
-
         <div class="row mb-3">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Текущий пароль</label>
             <div class="col-sm-10">

@@ -35,6 +35,9 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('auth::profile') }}">Профиль</a>
+                            @if(Auth::user()->is_admin != 0)
+                                <a class="dropdown-item" href="{{ route('admin::users::index') }}">Пользователи</a>
+                            @endif
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
