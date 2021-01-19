@@ -18,7 +18,7 @@ class AdminNewsController extends Controller
         return redirect()->route('news::item', ['id' => $model->news_id]);
     }
 
-    public function createView() {
+    public function createView(Request $request) {
         $categories = NewsCategory::all();
         return view('admin.news.create', [
             "categories" => $categories

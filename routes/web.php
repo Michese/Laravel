@@ -59,18 +59,32 @@ Route::group([
         ->name('delete');
 });
 
-Route::group([
-    'prefix' => '/auth',
-    'as' => 'auth::'
-], function () {
-
-    Route::get('/', [AuthController::class, 'index'])
-        ->name('index');
-
-    Route::post('/signIn', [AuthController::class, 'signIn'])
-        ->name('signIn');
-});
+//Route::group([
+//    'prefix' => '/auth',
+//    'as' => 'auth::'
+//], function () {
+//
+//    Route::get('/', [AuthController::class, 'index'])
+//        ->name('index');
+//
+//    Route::post('/signIn', [AuthController::class, 'signIn'])
+//        ->name('signIn');
+//});
 
 Route::get('/db', [\App\Http\Controllers\DBController::class, 'index'])
     ->name('db::index');
 
+Auth::routes();
+Route::group([
+    'prefix' => '/auth',
+    'as' => 'auth::'
+], function () {
+    Route::get('/profile', [\App\Http\Controllers\Auth\ProfileController::class, 'profile'])
+        ->name('profile');
+
+    Route::post('/profile/update', [\App\Http\Controllers\Auth\ProfileController::class, 'update'] )
+        ->name('profile::update');
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/locale', [\App\Http\Controllers\LocaleController::class, 'setLocale'])->name('locale');

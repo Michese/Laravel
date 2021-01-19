@@ -38,11 +38,11 @@ class HeaderModel extends Model
             'alias' => 'admin::news::createView',
             'isActive' => false
         ],
-        'Войти' =>[
-            'title' => 'Войти',
-            'alias' => 'auth::index',
-            'isActive' => false
-        ],
+//        'Войти' =>[
+//            'title' => 'Войти',
+//            'alias' => 'auth::index',
+//            'isActive' => false
+//        ],
     ];
 
     public function getMenu()
