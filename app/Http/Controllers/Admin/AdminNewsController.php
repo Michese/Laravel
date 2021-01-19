@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\createNewRequest;
 use App\Models\News;
 use App\Models\NewsCategory;
 use Illuminate\Http\Request;
 
 class AdminNewsController extends Controller
 {
-    public function create(Request $request): \Illuminate\Http\RedirectResponse
+    public function create(CreateNewRequest $request): \Illuminate\Http\RedirectResponse
     {
         $post = $request->post();
         $model = new News;

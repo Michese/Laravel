@@ -34,7 +34,7 @@ Route::group([
     Route::get('/category', [NewsController::class, 'category'])
         ->name('category');
 
-    Route::get('/category/{category_id}', [NewsController::class, 'newsByCategory'])
+    Route::get('/category/{category_id}', [AdminNewsController::class, 'newsByCategory'])
         ->name('index')
         ->where('category_id', '\d+');
 

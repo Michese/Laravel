@@ -22,14 +22,9 @@ class NewsController extends Controller
         return view('news.new', ['new' => $new]);
     }
 
-    public function newsByCategory($id) {
-        $isAdmin = true;
-        if($isAdmin == true) {
-            $result = (new AdminNewsController())->newsByCategory($id);
-        } else {
-            $news = (new News)->getNewsByCategoryId($id);
-            $result = view('news.news', ['news' => $news]);
-        }
-        return $result;
+    public function newsByCategory($id)
+    {
+        $news = (new News)->getNewsByCategoryId($id);
+        return view('news.news', ['news' => $news]);
     }
 }
