@@ -92,3 +92,24 @@ Route::group([
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/locale', [\App\Http\Controllers\LocaleController::class, 'setLocale'])->name('locale');
+//Route::get('/auth/login/vk', )
+
+Route::group([
+    'prefix' => '/social',
+   'as' => 'social::',
+], function() {
+    Route::get('/login/vk', [\App\Http\Controllers\SocialController::class, 'loginVK'])
+        ->name('login::vk');
+
+    Route::get('/response/vk', [\App\Http\Controllers\SocialController::class, 'responseVK'])
+        ->name('response::vk');
+
+    Route::get('/login/fb', [\App\Http\Controllers\SocialController::class, 'loginFB'])
+        ->name('login::fb');
+
+    Route::get('/response/fb', [\App\Http\Controllers\SocialController::class, 'responseFB'])
+        ->name('response::fb');
+});
+
+Route::get('/api/exchange/rate', [\App\Http\Controllers\ExchangeRateController::class, 'addExchangeRates'])
+    ->name('api::exchange::rate');

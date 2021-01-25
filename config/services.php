@@ -1,7 +1,16 @@
 <?php
 
 return [
-
+    'vkontakte' => [
+        'client_id' => env('KEY_VK'),
+        'client_secret' => env('SECRET_VK'),
+        'redirect' => env('URI_VK')
+    ],
+    'facebook' => [
+        'client_id'     => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect'      => env('FACEBOOK_CALLBACK_URL'),
+    ],
     /*
     |--------------------------------------------------------------------------
     | Third Party Services
