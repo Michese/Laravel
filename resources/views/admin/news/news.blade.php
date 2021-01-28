@@ -13,7 +13,9 @@
                         <h5 class="card-title">{{ $new->title }}</h5>
                         <p class="card-text">{{ $new->description }} </p>
                         <a href="{{ route('news::item', ['id' => $new->news_id]) }}" class="btn btn-primary">Подробнее</a>
+                        @if(\Auth::user()->hasRole('admin'))
                         <input type="submit" value="Удалить" class="btn btn-danger">
+                        @endif
                     </div>
                 </div>
             </form>

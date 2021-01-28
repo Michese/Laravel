@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminNewsController;
 use App\Models\News;
 use App\Models\NewsCategory;
 use App\Models\NewsModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
