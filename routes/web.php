@@ -113,3 +113,6 @@ Route::group([
 
 Route::get('/api/exchange/rate', [\App\Http\Controllers\ExchangeRateController::class, 'addExchangeRates'])
     ->name('api::exchange::rate');
+
+Route::get('/parser', [\App\Http\Controllers\ParserController::class, 'index'])
+    ->name('parser');

@@ -42,6 +42,11 @@ return [
             'visibility' => 'public',
         ],
 
+        'news' => [
+            'driver' => 'local',
+            'root' => storage_path('app/news'),
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
